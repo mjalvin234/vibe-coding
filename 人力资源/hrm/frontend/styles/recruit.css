@@ -1,0 +1,504 @@
+/**
+ * 招聘管理页面样式
+ * 对应 Figma 节点 786:15556
+ * 五列漏斗布局
+ */
+
+/* 页面容器 */
+.recruit-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f4f8fe;
+}
+
+/* Hero 区域 */
+.recruit-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 17px;
+  height: 122px;
+  background: #fff;
+  border: 1px solid #dbe8f2;
+  border-radius: 18px;
+  position: relative;
+}
+
+.recruit-hero__title {
+  font-size: 25px;
+  font-weight: 700;
+  color: #31373d;
+  margin: 0;
+  line-height: 30px;
+}
+
+.recruit-hero__subtitle {
+  font-size: 13px;
+  color: #67738c;
+  margin: 0;
+  line-height: 20px;
+}
+
+.recruit-hero__actions {
+  display: flex;
+  gap: 14px;
+  margin-top: auto;
+}
+
+.recruit-hero__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.recruit-hero__btn--primary {
+  background: #f0f4ff;
+  color: #2f51ff;
+}
+
+.recruit-hero__btn--primary:hover {
+  background: #e0e8ff;
+}
+
+.recruit-hero__btn--default {
+  background: #fff;
+  color: #31373d;
+}
+
+.recruit-hero__btn--default:hover {
+  background: #f5f7fa;
+}
+
+/* KPI 卡片行 */
+.recruit-kpis {
+  display: flex;
+  gap: 16px;
+  height: 128px;
+}
+
+.recruit-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px;
+  width: 286px;
+  background: #fff;
+  border: 1px solid #dbe8f2;
+  border-radius: 16px;
+}
+
+.recruit-kpi__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #67738c;
+}
+
+.recruit-kpi__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #31373d;
+  margin-top: 18px;
+}
+
+/* 漏斗区域 */
+.recruit-funnel {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #dbe8f2;
+  border-radius: 16px;
+  flex: 1;
+}
+
+.recruit-funnel__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.recruit-funnel__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #31373d;
+  margin: 0;
+}
+
+.recruit-funnel__subtitle {
+  font-size: 13px;
+  color: #67738c;
+  margin: 0;
+}
+
+/* 五列漏斗 */
+.recruit-funnel__cols {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.recruit-funnel__col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 13px;
+  width: 220px;
+  min-height: 250px;
+  border-radius: 14px;
+  border: 1px solid #dbe8f2;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recruit-funnel__col:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 列顶部颜色条 */
+.recruit-funnel__col::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1px;
+  right: -1px;
+  height: 4px;
+}
+
+.recruit-funnel__col--demand {
+  background: #eef5ff;
+}
+.recruit-funnel__col--demand::before {
+  background: #2563eb;
+}
+
+.recruit-funnel__col--funnel {
+  background: #f4f0ff;
+}
+.recruit-funnel__col--funnel::before {
+  background: #7c3aed;
+}
+
+.recruit-funnel__col--session {
+  background: #ecfeff;
+}
+.recruit-funnel__col--session::before {
+  background: #0d9488;
+}
+
+.recruit-funnel__col--offer {
+  background: #fff4e4;
+}
+.recruit-funnel__col--offer::before {
+  background: #ea580c;
+}
+
+.recruit-funnel__col--onboard {
+  background: #f0fdf4;
+}
+.recruit-funnel__col--onboard::before {
+  background: #16a34a;
+}
+
+/* 列标题 */
+.recruit-funnel__col-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.recruit-funnel__col-title--blue { color: #2563eb; }
+.recruit-funnel__col-title--purple { color: #7c3aed; }
+.recruit-funnel__col-title--teal { color: #0d9488; }
+.recruit-funnel__col-title--orange { color: #ea580c; }
+.recruit-funnel__col-title--green { color: #16a34a; }
+
+/* 列指标 */
+.recruit-funnel__col-metric {
+  font-size: 13px;
+  color: #31373d;
+  margin-top: 12px;
+  line-height: 18px;
+}
+
+.recruit-funnel__col-metric strong {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.recruit-funnel__col-metric--blue strong { color: #2563eb; }
+.recruit-funnel__col-metric--purple strong { color: #7c3aed; }
+.recruit-funnel__col-metric--teal strong { color: #0d9488; }
+.recruit-funnel__col-metric--orange strong { color: #ea580c; }
+.recruit-funnel__col-metric--green strong { color: #16a34a; }
+
+/* 关键字段标签 */
+.recruit-funnel__col-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #67738c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 26px;
+}
+
+.recruit-funnel__col-fields {
+  font-size: 12px;
+  color: #4b5565;
+  line-height: 17px;
+  margin-top: 4px;
+}
+
+/* 候选人列表区域 */
+.recruit-candidates {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.recruit-candidates__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #31373d;
+}
+
+.recruit-candidates__hint {
+  font-size: 12px;
+  color: #67738c;
+  line-height: 18px;
+}
+
+/* 候选人表格 */
+.recruit-table-wrap {
+  border: 1px solid #dbe8f2;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.recruit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.recruit-table th {
+  background: #f7f9fa;
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  color: #31373d;
+  border-bottom: 1px solid #e6e8eb;
+}
+
+.recruit-table td {
+  padding: 13px 16px;
+  color: #31373d;
+  border-bottom: 1px solid #e6e8eb;
+  letter-spacing: 0.48px;
+}
+
+.recruit-table tr:last-child td {
+  border-bottom: none;
+}
+
+.recruit-table tr:hover td {
+  background: #f9fafb;
+}
+
+/* 子页面导航 */
+.recruit-subnav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.recruit-subnav__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #e0e3eb;
+  background: #fff;
+  color: #31373d;
+  transition: all 0.2s;
+}
+
+.recruit-subnav__btn--active {
+  background: #2f51ff;
+  border-color: #2f51ff;
+  color: #fff;
+}
+
+.recruit-subnav__btn:hover:not(.recruit-subnav__btn--active) {
+  background: #f5f7fa;
+}
+
+/* 筛选栏 */
+.recruit-filter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 12px;
+  margin-bottom: 14px;
+}
+
+.recruit-filter__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  background: #f7f7fa;
+  border-radius: 8px;
+  flex: 1;
+  max-width: 200px;
+}
+
+.recruit-filter__search-input {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #999;
+  outline: none;
+  width: 100%;
+}
+
+.recruit-filter__group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recruit-filter__label {
+  font-size: 14px;
+  color: #31373d;
+}
+
+.recruit-filter__select {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 10px 0 12px;
+  background: #f7f7fa;
+  border: 1px solid #e0e3eb;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #808080;
+  cursor: pointer;
+}
+
+.recruit-filter__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.recruit-filter__btn--primary {
+  background: #2f51ff;
+  color: #fff;
+}
+
+.recruit-filter__btn--default {
+  background: #fff;
+  border: 1px solid #e0e3eb;
+  color: #31373d;
+}
+
+/* 详情页面样式 */
+.recruit-detail {
+  padding: 24px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #dbe8f2;
+}
+
+.recruit-detail__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e6e8eb;
+}
+
+.recruit-detail__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #31373d;
+  margin: 0;
+}
+
+.recruit-detail__status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.recruit-detail__status--offer {
+  background: rgba(234, 88, 12, 0.12);
+  color: #ea580c;
+}
+
+.recruit-detail__status--session {
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
+}
+
+.recruit-detail__info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.recruit-detail__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.recruit-detail__label {
+  font-size: 12px;
+  color: #67738c;
+}
+
+.recruit-detail__value {
+  font-size: 14px;
+  color: #31373d;
+  font-weight: 500;
+}

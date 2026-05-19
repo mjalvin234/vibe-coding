@@ -1,0 +1,110 @@
+/**
+ * 色彩与语义 token — 与 Figma 文件一致并随画板迭代
+ * https://www.figma.com/design/ZHNbAy50bYd0oqZavray98/Untitled?m=dev
+ * 组件库：主色 #2F51FF、正文 #31373D、表头底 #F7F9FA、Hero 描边 #DBE8F2、副文案 #67738C
+ */
+:root{
+  /* —— 品牌与字色（组件库） —— */
+  --color-primary: #2f51ff;
+  --color-text-body: #31373d;
+  --color-line: #e6e8eb;
+  --color-line-strong: #d4d6d9;
+  --color-placeholder: #bbbdbf;
+  --color-disabled-bg: #e6e8eb;
+
+  /* —— 画板内语义灰 / 标题（导出代码中的 rgba） —— */
+  --color-text-heading: rgba(7, 24, 39, 0.92);
+  --color-text-card-title: rgba(7, 24, 39, 0.9);
+  --color-text-secondary: rgba(7, 24, 39, 0.78);
+  --color-text-tertiary: rgba(7, 24, 39, 0.58);
+  --color-text-kpi-label: rgba(44, 107, 162, 0.62);
+
+  /* —— 玻璃态表面（工作台画板） —— */
+  --color-surface-sidebar: rgba(255, 255, 255, 0.65);
+  --color-surface-topbar: rgba(255, 255, 255, 0.72);
+  --color-surface-card: rgba(255, 255, 255, 0.8);
+  --color-surface-cell: rgba(255, 255, 255, 0.72);
+
+  /* —— 玻璃描边（设计里蓝系 / 灰蓝系两套） —— */
+  --color-border-glass-blue: rgba(37, 99, 235, 0.1);
+  --color-border-glass-blue-mid: rgba(37, 99, 235, 0.12);
+  --color-border-glass-slate: rgba(71, 97, 153, 0.1);
+
+  /* —— 导航选中底（画板: rgba(47,130,255,0.1)） —— */
+  --color-nav-selected-bg: rgba(47, 130, 255, 0.1);
+
+  /* —— 页面底色 + 氛围（员工花名册等画板 1031:3432：linear + 双径向） —— */
+  --color-bg-page: #f0f7ff;
+  --gradient-page-atmosphere:
+    radial-gradient(800px 500px at 17% 72%, rgba(14, 165, 233, 0.22), transparent 55%),
+    radial-gradient(760px 470px at 63% 63%, rgba(37, 99, 235, 0.38), transparent 58%),
+    linear-gradient(90deg, #f0f7ff 0%, #f0f7ff 100%);
+
+  /* —— Hero / 列表卡片（Figma 招聘管理 · 内容区） —— */
+  --color-hero-border: #dbe8f2;
+  --color-hero-subtitle: #67738c;
+  --color-table-header-bg: #f7f9fa;
+  --letter-table-cell: 0.03em;
+
+  /* —— 投影（画板侧栏 drop / 卡片双层） —— */
+  --shadow-sidebar: 0 12px 15px rgba(0, 0, 0, 0.1);
+  --shadow-card-figma: 0 2px 8px rgba(82, 90, 102, 0.08), 0 1px 2px rgba(82, 90, 102, 0.06);
+
+  --radius-figma-card: 16px;
+  --radius-figma-bar: 14px;
+  --radius-figma-cell: 14px;
+  --radius-figma-input: 4px;
+
+  /* 表单控件统一高度：列表筛选、顶栏、弹窗、通用 .input/.select（与 Figma 组件库一致） */
+  --hrms-control-height: 36px;
+  /* 登录等大号输入区可单独使用 */
+  --hrms-control-height-prominent: 44px;
+
+  /* —— 映射到壳内已有变量名（其余 CSS 少改） —— */
+  --figma-blue: var(--color-primary);
+  --text-body: var(--color-text-body);
+  --text-strong: var(--color-text-heading);
+  --text-muted: rgba(49, 55, 61, 0.62);
+  --text-placeholder: var(--color-placeholder);
+  --line: var(--color-line);
+  --line-strong: var(--color-line-strong);
+  --disabled-bg: var(--color-disabled-bg);
+  --bg-page: var(--color-bg-page);
+  --bg-sider: var(--color-surface-sidebar);
+  --surface: var(--color-surface-card);
+  --surface-solid: #ffffff;
+  --surface-muted: rgba(255, 255, 255, 0.55);
+  --bg-subtle: rgba(236, 238, 240, 0.95);
+  --text: var(--text-body);
+  --muted: var(--text-muted);
+  --border: var(--color-line);
+  --border2: var(--color-line-strong);
+  --primary: var(--color-primary);
+  --primary-pressed: #2546e6;
+  --primary-soft: rgba(37, 99, 235, 0.08);
+  --primary-border: var(--color-border-glass-blue-mid);
+  --focus: rgba(47, 81, 255, 0.22);
+  --success: #0d7a4e;
+  --success-soft: rgba(13, 122, 78, 0.1);
+  --success-border: rgba(13, 122, 78, 0.22);
+  --warning: #b54708;
+  --warning-soft: rgba(181, 71, 8, 0.1);
+  --warning-border: rgba(181, 71, 8, 0.22);
+  --error: #d92d20;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-input: var(--radius-figma-input);
+  --shadow-card: var(--shadow-card-figma);
+  --shadow-topbar: 0 1px 0 rgba(82, 90, 102, 0.06);
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bg: var(--bg-page);
+  /* 画板总宽参考；主内容区铺满侧栏右侧可用宽度 */
+  --shell-max: 1440px;
+  /* 略小于画板边距，让主列可视内容更宽 */
+  --shell-pad-x: 20px;
+  --nav-sider-width: 200px;
+  --nav-sider-width-collapsed: 74px;
+  --shell-main-max: 100%;
+  /* 列表 / 工作台在 .content 内铺满主列（由 .content 的左右 padding 形成与画板一致的内边距） */
+  --content-card-max: 100%;
+}

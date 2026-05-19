@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 部署时若 API 与静态页不同源，可设置 content 为完整 API 根地址，例如 https://api.example.com -->
+    <!-- <meta name="hrms-api-base" content="http://127.0.0.1:8787" /> -->
+    <title>HRMS 登录</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/figma-tokens.css" />
+    <link rel="stylesheet" href="./styles/login.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="shell" aria-label="登录页">
+        <div class="brand">
+          <!-- 与 Figma「Login / Data Lab — 新（账号）」77:2 左侧视觉：氛围装饰 + 文案 -->
+          <div class="brand__visual" aria-hidden="true">
+            <div class="brand__glow brand__glow--1"></div>
+            <div class="brand__glow brand__glow--2"></div>
+            <div class="brand__mock">
+              <div class="brand__mock-bar"></div>
+              <div class="brand__mock-rows">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <div class="brand__copy">
+            <p class="brand__meta">HRMS • Secure Access</p>
+            <h1 class="brand__title">欢迎回来</h1>
+            <p class="brand__subtitle">使用企业账号登录，或通过扫码快速进入。</p>
+            <ul class="brand__bullets" aria-label="系统优势">
+              <li>组织与人员档案统一管理</li>
+              <li>审批流与考勤薪酬可配置</li>
+              <li>操作留痕，权限分级</li>
+            </ul>
+          </div>
+        </div>
+
+        <section class="card" aria-label="登录表单">
+          <div class="card__title">登录</div>
+
+          <div class="tabs" role="tablist" aria-label="登录方式">
+            <button
+              class="tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-account"
+              id="tab-account"
+              data-tab="account"
+              tabindex="0"
+            >
+              账号登录
+            </button>
+            <button
+              class="tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-qr"
+              id="tab-qr"
+              data-tab="qr"
+              tabindex="-1"
+            >
+              扫码登录
+            </button>
+          </div>
+
+          <div class="panels">
+            <form class="panel is-active" id="panel-account" role="tabpanel" aria-labelledby="tab-account" novalidate>
+              <label class="field" data-field="account">
+                <span class="field__label">企业邮箱 / 手机号</span>
+                <input
+                  class="field__input"
+                  id="account"
+                  name="account"
+                  autocomplete="username"
+                  inputmode="email"
+                  placeholder="name@company.com"
+                  title="支持企业邮箱、11 位手机号或 admin"
+                  aria-describedby="err-account"
+                  required
+                />
+                <div class="field__error" id="err-account" data-error aria-live="polite"></div>
+              </label>
+
+              <label class="field" data-field="password">
+                <span class="field__label">密码</span>
+                <div class="field__password">
+                  <input
+                    class="field__input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="current-password"
+                    placeholder="请输入密码"
+                    aria-describedby="err-password"
+                    required
+                  />
+                  <button
+                    class="icon-btn"
+                    type="button"
+                    aria-label="显示或隐藏密码"
+                    aria-pressed="false"
+                    id="togglePassword"
+                  >
+                    <span class="icon-eye" aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="field__error" id="err-password" data-error aria-live="polite"></div>
+              </label>
+
+              <button class="btn btn--primary" type="submit" id="loginBtn">
+                <span class="btn__label">登录</span>
+                <span class="btn__spinner" aria-hidden="true"></span>
+              </button>
+            </form>
+
+            <section class="panel" id="panel-qr" role="tabpanel" aria-labelledby="tab-qr">
+              <div class="qr">
+                <div class="qr__box" role="img" aria-label="扫码登录二维码占位">
+                  <div class="qr__placeholder"></div>
+                </div>
+                <div class="qr__hint">请使用企业微信/钉钉扫描</div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./src/hrms-static-mock-embed.js"></script>
+    <script src="./src/hrms-page-mock-embed.js"></script>
+    <script src="./src/api-offline-mock.js"></script>
+    <script src="./src/api.js"></script>
+    <script src="./src/login.js"></script>
+  </body>
+</html>
+

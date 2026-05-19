@@ -1,0 +1,1333 @@
+/**
+ * 绩效看板页面样式
+ * 对应 Figma 节点 786:14656
+ */
+
+/* 页面容器 */
+.perf-page{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f4f8fe;
+}
+
+/* Hero 区域 */
+.perf-hero{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 17px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 18px;
+  box-shadow: var(--shadow-card);
+  min-height: 128px;
+}
+.perf-hero__title{
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 30px;
+  color: var(--color-text-body);
+}
+.perf-hero__subtitle{
+  margin: 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-hero-subtitle, #67738c);
+  max-width: 400px;
+}
+.perf-hero__actions{
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.perf-hero__btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 17px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+.perf-hero__btn--primary{
+  background: #f0f4ff;
+  color: var(--color-primary);
+}
+.perf-hero__btn--default{
+  background: #fff;
+  color: var(--color-text-body);
+}
+
+/* KPI 卡片行 */
+.perf-kpis{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  height: 132px;
+}
+.perf-kpi{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+}
+.perf-kpi__label{
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19px;
+  color: var(--color-hero-subtitle, #67738c);
+}
+.perf-kpi__value{
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+  color: var(--color-text-body);
+}
+.perf-kpi__note{
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--color-hero-subtitle, #67738c);
+}
+
+/* 主内容区双栏 */
+.perf-main{
+  display: flex;
+  gap: 14px;
+  flex: 1;
+}
+
+/* 左侧：待校准清单 */
+.perf-list{
+  flex: 0 0 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  min-height: 760px;
+}
+.perf-list__hd{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.perf-list__title{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+.perf-list__badge{
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.perf-list__badge--blue{ color: #2563eb; background: rgba(37, 99, 235, 0.1); }
+.perf-list__badge--orange{ color: #eb5c16; background: rgba(235, 92, 22, 0.1); }
+.perf-list__badge--gray{ color: #67738c; background: rgba(103, 115, 140, 0.1); }
+.perf-list__hint{
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-hero-subtitle, #67738c);
+}
+.perf-list__summary{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  background: #f7fafc;
+  border-radius: 8px;
+  font-size: 11px;
+}
+.perf-list__summary-text{ color: var(--color-text-body); }
+.perf-list__summary-link{
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+.perf-list__summary-muted{ color: var(--color-hero-subtitle, #67738c); }
+
+/* 表格样式 */
+.perf-table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 11px;
+}
+.perf-table th,
+.perf-table td{
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+.perf-table thead tr{
+  background: #f7f9fa;
+}
+.perf-table th{
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-hero-subtitle, #67738c);
+  border-bottom: 1px solid var(--color-hero-border, #dbe8f2);
+}
+.perf-table tbody tr{
+  background: #fff;
+  border-radius: 10px;
+}
+.perf-table tbody tr + tr{
+  margin-top: 4px;
+}
+.perf-table tbody tr.highlight{
+  background: #fff5e3;
+}
+.perf-table td{
+  border-bottom: 1px solid var(--color-hero-border, #dbe8f2);
+  color: var(--color-text-body);
+}
+.perf-table .name{
+  font-weight: 600;
+  font-size: 12px;
+}
+.perf-table .diff-positive{ color: #eb5c16; font-weight: 600; }
+.perf-table .diff-negative{ color: #16a34a; font-weight: 600; }
+.perf-table .priority-p0{
+  color: #eb5c16;
+  font-weight: 600;
+  background: rgba(235, 92, 22, 0.08);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 偏离条 */
+.perf-bar{
+  width: 76px;
+  height: 8px;
+  background: #e8eef6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.perf-bar__fill{
+  height: 100%;
+  border-radius: 4px;
+}
+.perf-bar__fill--gray{ background: var(--color-text-body); }
+.perf-bar__fill--orange{ background: #eb5c16; }
+.perf-bar__fill--green{ background: #16a34a; }
+
+/* 右侧：分布概览 */
+.perf-charts{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+}
+.perf-charts__title{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+.perf-charts__subtitle{
+  font-size: 13px;
+  color: var(--color-hero-subtitle, #67738c);
+}
+
+/* 图表容器 */
+.perf-chart-box{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: #fcfdfe;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 12px;
+}
+.perf-chart-box__title{
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+.perf-chart-box__hint{
+  font-size: 10px;
+  color: var(--color-hero-subtitle, #67738c);
+}
+
+/* 柱状图 */
+.perf-bar-chart{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 10px 8px;
+  background: #f7fafc;
+  border-radius: 8px;
+  min-height: 130px;
+}
+.perf-bar-col{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  width: 36px;
+}
+.perf-bar-col__value{
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-body);
+}
+.perf-bar-col__bar{
+  width: 28px;
+  border-radius: 5px;
+}
+.perf-bar-col__label{
+  font-size: 9px;
+  color: var(--color-hero-subtitle, #67738c);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 环形图 */
+.perf-pie-chart{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-height: 164px;
+}
+.perf-pie{
+  width: 118px;
+  height: 118px;
+  position: relative;
+}
+.perf-legend{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.perf-legend__item{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.perf-legend__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+.perf-legend__text{
+  font-size: 9px;
+  color: var(--color-text-body);
+}
+
+/* 底部说明 */
+.perf-list__footer{
+  font-size: 11px;
+  color: var(--color-hero-subtitle, #67738c);
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* 响应式 */
+@media (max-width: 1280px){
+  .perf-kpis{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .perf-main{
+    flex-direction: column;
+  }
+  .perf-list{
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* ========================================
+   绩效看板 - 工单总量 (Figma 1197:4961)
+   ======================================== */
+
+.perf-wo-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f4f8fe;
+}
+
+/* Hero */
+.perf-wo-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-wo-hero__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #121725;
+}
+.perf-wo-hero__subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #73788e;
+}
+
+/* KPI 卡片 */
+.perf-wo-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.perf-wo-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-wo-kpi__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #67738c;
+}
+.perf-wo-kpi__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f73eb;
+}
+.perf-wo-kpi__value--success { color: #16a38c; }
+.perf-wo-kpi__value--warning { color: #d95c08; }
+.perf-wo-kpi__value--danger { color: #dc2625; }
+.perf-wo-kpi__trend {
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a38c;
+}
+.perf-wo-kpi__trend--down { color: #16a38c; }
+.perf-wo-kpi__trend--up { color: #dc2625; }
+
+/* 主内容区 */
+.perf-wo-main {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+/* 左侧：工单类型分布 */
+.perf-wo-dist {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-wo-dist__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #31373d;
+}
+.perf-wo-type-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+.perf-wo-type-row__label {
+  width: 80px;
+  font-size: 12px;
+  color: #31373d;
+}
+.perf-wo-type-row__bar {
+  flex: 1;
+  height: 12px;
+  background: #e8edf5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.perf-wo-type-row__fill {
+  height: 100%;
+  border-radius: 4px;
+}
+.perf-wo-type-row__fill--blue { background: #1f73eb; }
+.perf-wo-type-row__fill--green { background: #16a38c; }
+.perf-wo-type-row__fill--orange { background: #d95c08; }
+.perf-wo-type-row__fill--purple { background: #8b5cf6; }
+.perf-wo-type-row__fill--gray { background: #67738c; }
+.perf-wo-type-row__value {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1f73eb;
+  white-space: nowrap;
+}
+.perf-wo-type-row__value--green { color: #16a38c; }
+.perf-wo-type-row__value--orange { color: #d95c08; }
+.perf-wo-type-row__value--purple { color: #8b5cf6; }
+.perf-wo-type-row__value--gray { color: #67738c; }
+
+/* 处理漏斗 */
+.perf-wo-funnel-title {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #31373d;
+}
+.perf-wo-funnel-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+.perf-wo-funnel-row__label {
+  width: 50px;
+  font-size: 11px;
+  color: #31373d;
+}
+.perf-wo-funnel-row__bar {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  padding-left: 8px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+.perf-wo-funnel-row__bar--submit { background: #1f73eb; width: 180px; }
+.perf-wo-funnel-row__bar--assign { background: #4f7df2; width: 172px; }
+.perf-wo-funnel-row__bar--process { background: #16a38c; width: 130px; }
+.perf-wo-funnel-row__bar--done { background: #167361; width: 175px; }
+
+/* 右侧：趋势图 */
+.perf-wo-trend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-wo-trend__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #31373d;
+}
+.perf-wo-trend__chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: #f7faff;
+  border-radius: 12px;
+}
+.perf-wo-bars {
+  display: flex;
+  gap: 16px;
+  padding-top: 30px;
+}
+.perf-wo-bar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  flex: 1;
+}
+.perf-wo-bar-col__value {
+  font-size: 9px;
+  font-weight: 600;
+  color: #31373d;
+}
+.perf-wo-bar-col__bar {
+  width: 32px;
+  border-radius: 4px;
+  background: rgba(77, 153, 242, 0.6);
+}
+.perf-wo-bar-col__bar--current {
+  background: #1f73eb;
+}
+.perf-wo-bar-col__label {
+  font-size: 9px;
+  color: #67738c;
+}
+.perf-wo-stats {
+  display: flex;
+  gap: 24px;
+  padding-top: 16px;
+}
+.perf-wo-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.perf-wo-stat__label {
+  font-size: 10px;
+  color: #67738c;
+}
+.perf-wo-stat__value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f73eb;
+}
+
+/* ========================================
+   绩效看板 - 任务完成率 (Figma 1197:4940)
+   ======================================== */
+
+.perf-task-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f4f8fe;
+}
+
+/* Hero */
+.perf-task-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-task-hero__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #121725;
+}
+.perf-task-hero__subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #73788e;
+}
+
+/* KPI 卡片 */
+.perf-task-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.perf-task-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-task-kpi__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #67738c;
+}
+.perf-task-kpi__row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.perf-task-kpi__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f73eb;
+}
+.perf-task-kpi__value--success { color: #16a38c; }
+.perf-task-kpi__value--warning { color: #d95c08; }
+.perf-task-kpi__value--danger { color: #dc2625; }
+.perf-task-kpi__unit {
+  font-size: 12px;
+  font-weight: 600;
+  color: #67738c;
+}
+.perf-task-kpi__trend {
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a38c;
+}
+
+/* 主内容区 */
+.perf-task-main {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+/* 左侧：状态分布 */
+.perf-task-dist {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-task-dist__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #31373d;
+}
+.perf-task-dist__chart {
+  display: flex;
+  gap: 20px;
+  padding: 24px;
+  background: #f7faff;
+  border-radius: 12px;
+}
+.perf-task-dist__donut {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    #16a38c 0deg 241.2deg,
+    #1f73eb 241.2deg 313.2deg,
+    #d95c08 313.2deg 342deg,
+    #dc2625 342deg 360deg
+  );
+  position: relative;
+}
+.perf-task-dist__donut::after {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 60px;
+  height: 60px;
+  background: #f7faff;
+  border-radius: 50%;
+}
+.perf-task-dist__legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+}
+.perf-task-dist__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.perf-task-dist__legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+.perf-task-dist__legend-dot--done { background: #16a38c; }
+.perf-task-dist__legend-dot--progress { background: #1f73eb; }
+.perf-task-dist__legend-dot--delay { background: #d95c08; }
+.perf-task-dist__legend-dot--pending { background: #dc2625; }
+.perf-task-dist__legend-text {
+  font-size: 12px;
+  color: #31373d;
+}
+
+/* 延期原因分析 */
+.perf-task-reason-title {
+  margin: 12px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #31373d;
+}
+.perf-task-reason-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+.perf-task-reason-row__label {
+  font-size: 12px;
+  color: #31373d;
+}
+.perf-task-reason-row__value {
+  font-size: 11px;
+  font-weight: 600;
+  color: #d95c08;
+}
+
+/* 右侧：趋势图 */
+.perf-task-trend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-task-trend__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #31373d;
+}
+.perf-task-trend__chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: #f7faff;
+  border-radius: 12px;
+}
+.perf-task-trend__line {
+  display: flex;
+  gap: 32px;
+  padding-top: 30px;
+}
+.perf-task-trend__point {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+.perf-task-trend__point-value {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1f73eb;
+}
+.perf-task-trend__point-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #1f73eb;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #1f73eb;
+}
+.perf-task-trend__point-label {
+  font-size: 10px;
+  color: #67738c;
+}
+.perf-task-trend__summary {
+  font-size: 11px;
+  color: #67738c;
+}
+
+/* ========================================
+   绩效看板 - 绩效设置 (Figma 1204:4919)
+   ======================================== */
+
+.perf-set-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f4f8fe;
+}
+
+/* Hero */
+.perf-set-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-set-hero__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #121725;
+}
+.perf-set-hero__subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #73788e;
+}
+
+/* 三栏布局 */
+.perf-set-main {
+  display: flex;
+  gap: 16px;
+}
+
+/* 通用卡片样式 */
+.perf-set-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-set-card__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #31373d;
+}
+.perf-set-card__subtitle {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #67738c;
+}
+
+/* 考核周期卡片 */
+.perf-set-period {
+  padding: 10px 12px;
+  background: #f7faff;
+  border-radius: 10px;
+}
+.perf-set-period__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.perf-set-period__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #31373d;
+}
+.perf-set-period__badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.perf-set-period__badge--active {
+  background: rgba(31, 115, 235, 0.12);
+  color: #1f73eb;
+}
+.perf-set-period__badge--done {
+  background: rgba(22, 163, 140, 0.12);
+  color: #16a38c;
+}
+.perf-set-period__badge--archived {
+  background: rgba(103, 115, 140, 0.12);
+  color: #67738c;
+}
+.perf-set-period__progress {
+  margin-top: 4px;
+  height: 6px;
+  background: #e5ebf2;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.perf-set-period__progress-bar {
+  height: 100%;
+  border-radius: 3px;
+}
+.perf-set-period__progress-bar--active { background: #1f73eb; }
+.perf-set-period__progress-bar--done { background: #16a38c; }
+.perf-set-period__progress-bar--archived { background: #67738c; }
+
+/* 新建按钮 */
+.perf-set-new-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #2f51ff;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+.perf-set-new-btn__icon {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* 评分规则 */
+.perf-set-grade {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #f7faff;
+  border-radius: 8px;
+}
+.perf-set-grade__badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.perf-set-grade__badge--a { background: #16a38c; }
+.perf-set-grade__badge--bplus { background: #33a68c; }
+.perf-set-grade__badge--b { background: #1f73eb; }
+.perf-set-grade__badge--c { background: #d95c08; }
+.perf-set-grade__badge--d { background: #dc2625; }
+.perf-set-grade__range {
+  width: 60px;
+  font-size: 12px;
+  color: #31373d;
+}
+.perf-set-grade__label {
+  font-size: 12px;
+  color: #67738c;
+}
+
+/* 维度权重 */
+.perf-set-weight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+.perf-set-weight__name {
+  width: 80px;
+  font-size: 12px;
+  color: #31373d;
+}
+.perf-set-weight__bar {
+  flex: 1;
+  height: 8px;
+  background: #e8edf5;
+  border-radius: 4px;
+}
+.perf-set-weight__value {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1f73eb;
+}
+
+/* 审批流程 */
+.perf-set-flow-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #f7faff;
+  border-radius: 10px;
+}
+.perf-set-flow-step__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+.perf-set-flow-step__num--1 { background: #16a38c; }
+.perf-set-flow-step__num--2 { background: #1f73eb; }
+.perf-set-flow-step__num--3 { background: #4f7df2; }
+.perf-set-flow-step__num--4 { background: #8b5cf6; }
+.perf-set-flow-step__num--5 { background: #16a38c; }
+.perf-set-flow-step__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.perf-set-flow-step__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #31373d;
+}
+.perf-set-flow-step__role {
+  font-size: 11px;
+  color: #67738c;
+}
+.perf-set-flow-arrow {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  color: #67738c;
+}
+
+/* 其他设置 */
+.perf-set-other {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f7faff;
+  border-radius: 8px;
+}
+.perf-set-other__name {
+  font-size: 12px;
+  color: #31373d;
+}
+.perf-set-other__value {
+  font-size: 11px;
+  font-weight: 600;
+  color: #16a38c;
+}
+
+/* ========================================
+   绩效看板 - 绩效得分 (Figma 1197:4919)
+   ======================================== */
+
+.perf-score-page {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f4f8fe;
+}
+
+/* Hero */
+.perf-score-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-score-hero__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #121725;
+}
+.perf-score-hero__subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #73788e;
+}
+
+/* KPI 卡片 */
+.perf-score-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.perf-score-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-score-kpi__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #67738c;
+}
+.perf-score-kpi__row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.perf-score-kpi__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f73eb;
+}
+.perf-score-kpi__value--success { color: #16a38c; }
+.perf-score-kpi__value--warning { color: #d95c08; }
+.perf-score-kpi__unit {
+  font-size: 12px;
+  font-weight: 600;
+  color: #16a38c;
+}
+.perf-score-kpi__trend {
+  font-size: 12px;
+  font-weight: 600;
+}
+.perf-score-kpi__trend--up { color: #16a38c; }
+.perf-score-kpi__trend--down { color: #dc2625; }
+
+/* 主内容区 */
+.perf-score-main {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+/* 左侧：维度得分 */
+.perf-score-detail {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-score-detail__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #31373d;
+}
+.perf-score-detail__header {
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  background: #f7f9fc;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #31373d;
+}
+.perf-score-detail__row {
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #31373d;
+}
+.perf-score-detail__col {
+  flex: 1;
+}
+.perf-score-detail__col--dim { flex: 1.2; }
+.perf-score-detail__grade {
+  font-weight: 600;
+}
+.perf-score-detail__grade--a { color: #16a38c; }
+.perf-score-detail__grade--bplus { color: #1f73eb; }
+.perf-score-detail__grade--b { color: #d95c08; }
+
+/* 右侧：趋势图 */
+.perf-score-trend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid var(--color-hero-border, #dbe8f2);
+  border-radius: 16px;
+}
+.perf-score-trend__title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #31373d;
+}
+.perf-score-trend__chart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: #f7faff;
+  border-radius: 12px;
+}
+.perf-score-trend__bars {
+  display: flex;
+  gap: 24px;
+  padding-top: 40px;
+}
+.perf-score-trend__bar-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}
+.perf-score-trend__bar-value {
+  font-size: 11px;
+  font-weight: 600;
+  color: #31373d;
+}
+.perf-score-trend__bar {
+  width: 48px;
+  border-radius: 6px;
+}
+.perf-score-trend__bar--last {
+  background: rgba(51, 166, 140, 0.6);
+}
+.perf-score-trend__bar--current {
+  background: #1f73eb;
+}
+.perf-score-trend__bar-label {
+  font-size: 10px;
+  color: #67738c;
+}
+.perf-score-trend__legend {
+  display: flex;
+  gap: 16px;
+  padding-top: 20px;
+}
+.perf-score-trend__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.perf-score-trend__legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+.perf-score-trend__legend-dot--last { background: rgba(51, 166, 140, 0.6); }
+.perf-score-trend__legend-dot--current { background: #1f73eb; }
+.perf-score-trend__legend-text {
+  font-size: 11px;
+  color: #67738c;
+}
+
+/* 响应式 */
+@media (max-width: 1280px) {
+  .perf-wo-kpis,
+  .perf-task-kpis,
+  .perf-score-kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .perf-wo-main,
+  .perf-task-main,
+  .perf-score-main {
+    flex-direction: column;
+  }
+  .perf-wo-dist,
+  .perf-task-dist,
+  .perf-score-detail {
+    flex: none;
+    width: 100%;
+  }
+  .perf-set-main {
+    flex-direction: column;
+  }
+}

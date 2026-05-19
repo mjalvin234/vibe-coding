@@ -1,0 +1,76 @@
+/**
+ * 404 页面样式
+ * 对应 Figma 节点 1293:8267
+ */
+
+/* 页面容器 */
+.notfound-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  padding: 20px 28px 24px;
+  background: #f0f7ff;
+}
+
+.notfound-content{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.notfound-code{
+  font-size: 140px;
+  font-weight: 700;
+  color: rgba(0, 42, 255, 0.2);
+  line-height: 1;
+  margin: 0;
+}
+
+.notfound-title{
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.notfound-desc{
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+}
+
+.notfound-actions{
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.notfound-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.notfound-btn--primary{
+  background: #2f51ff;
+  color: #fff;
+  width: 74px;
+}
+
+.notfound-btn--secondary{
+  background: #fff;
+  border: 1px solid #d9dbe0;
+  color: #31373d;
+  width: 83px;
+}

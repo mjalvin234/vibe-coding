@@ -1,0 +1,509 @@
+/**
+ * 我的申请系列页面 — 请假、出差、调岗调薪、发起申请
+ * 对齐 Figma 设计：请假 (411:1697)、出差、调岗调薪、发起申请
+ */
+
+/* ===== 页面基础布局 ===== */
+.apply-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===== 标题区 ===== */
+.apply-hero {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(71, 97, 153, 0.1);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.apply-hero__title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #121726;
+  letter-spacing: -0.02em;
+}
+
+.apply-hero__path {
+  margin: 0;
+  font-size: 12px;
+  color: #5c697d;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ===== 主内容区双栏布局 ===== */
+.apply-main {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+/* ===== 申请表单卡片（左侧） ===== */
+.apply-form-card {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #eef2f7;
+  box-sizing: border-box;
+}
+
+.apply-form-card__title {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #071827;
+}
+
+/* ===== 表单栅格 ===== */
+.apply-form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px 16px;
+}
+
+.apply-form-grid--full {
+  grid-column: 1 / -1;
+}
+
+/* ===== 表单项 ===== */
+.apply-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.apply-field--double {
+  grid-column: span 2;
+}
+
+.apply-field--full {
+  grid-column: 1 / -1;
+}
+
+.apply-field__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #657487;
+}
+
+.apply-field__control {
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 12px;
+  border: 1px solid #eef2f7;
+  background: rgba(239, 246, 255, 0.78);
+  font-size: 13px;
+  color: #071827;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.apply-field__control:focus {
+  outline: none;
+  border-color: #2f51ff;
+  box-shadow: 0 0 0 3px rgba(47, 81, 255, 0.1);
+}
+
+.apply-field__control::placeholder {
+  color: #657487;
+}
+
+/* 下拉选择 */
+.apply-field__select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23657487' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+/* 文本域 */
+.apply-field__textarea {
+  height: auto;
+  min-height: 120px;
+  padding: 12px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* 只读/禁用状态 */
+.apply-field__control:disabled,
+.apply-field__control--readonly {
+  background: #f5f7fa;
+  color: #5c697d;
+  cursor: not-allowed;
+}
+
+/* ===== 附件区域 ===== */
+.apply-attachment {
+  margin-top: 4px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #eef2f7;
+  background: rgba(239, 246, 255, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.apply-attachment__text {
+  font-size: 13px;
+  color: #071827;
+}
+
+.apply-attachment__btn {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #eafbfd;
+  border: none;
+  font-size: 12px;
+  color: #06b6d4;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.apply-attachment__btn:hover {
+  background: #d5f5f9;
+}
+
+/* ===== 操作按钮区 ===== */
+.apply-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #eef2f7;
+}
+
+.apply-btn {
+  padding: 4px 12px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.apply-btn--default {
+  background: #eff6ff;
+  color: #071827;
+}
+
+.apply-btn--default:hover {
+  background: #dbeafe;
+}
+
+.apply-btn--primary {
+  background: #eafbfd;
+  color: #06b6d4;
+}
+
+.apply-btn--primary:hover {
+  background: #d5f5f9;
+}
+
+/* ===== 右侧信息卡片 ===== */
+.apply-aside {
+  width: 376px;
+  flex-shrink: 0;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #eef2f7;
+  box-sizing: border-box;
+}
+
+.apply-aside__title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #071827;
+}
+
+/* 审批流程节点 */
+.apply-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.apply-flow-node {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #eef2f7;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.apply-flow-node--current {
+  background: rgba(234, 251, 253, 0.78);
+}
+
+.apply-flow-node__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #071827;
+  margin: 0 0 4px;
+}
+
+.apply-flow-node__info {
+  font-size: 12px;
+  color: #657487;
+  margin: 0;
+}
+
+/* 提示区域 */
+.apply-tips {
+  padding: 16px 12px;
+  border-radius: 12px;
+  background: rgba(239, 246, 255, 0.78);
+  border: 1px solid #eef2f7;
+  margin-bottom: 24px;
+}
+
+.apply-tips__item {
+  font-size: 13px;
+  color: #071827;
+  line-height: 20px;
+  margin: 0 0 4px;
+}
+
+.apply-tips__item:last-child {
+  margin-bottom: 0;
+}
+
+/* 历史记录 */
+.apply-history {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid #eef2f7;
+}
+
+.apply-history__item {
+  font-size: 12px;
+  color: #657487;
+  line-height: 16px;
+  margin: 0 0 8px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.apply-history__item:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== 发起申请页面特殊样式 ===== */
+.apply-start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.apply-start-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(239, 246, 255, 0.78);
+  border: 1px solid #eef2f7;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.apply-start-card:hover {
+  background: rgba(219, 234, 254, 0.78);
+  border-color: #2f51ff;
+  transform: translateY(-2px);
+}
+
+.apply-start-card__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #eafbfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.apply-start-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #071827;
+  margin: 0;
+}
+
+.apply-start-card__desc {
+  font-size: 12px;
+  color: #657487;
+  margin: 0;
+}
+
+/* ===== 出差申请特殊样式 ===== */
+.trip-itinerary {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(239, 246, 255, 0.5);
+  border: 1px solid #eef2f7;
+}
+
+.trip-itinerary__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #071827;
+  margin: 0 0 12px;
+}
+
+.trip-itinerary__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+/* ===== 调岗调薪特殊样式 ===== */
+.transfer-compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.transfer-column {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(239, 246, 255, 0.5);
+  border: 1px solid #eef2f7;
+}
+
+.transfer-column__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #657487;
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+.transfer-column--after {
+  background: rgba(234, 251, 253, 0.5);
+}
+
+.transfer-column--after .transfer-column__title {
+  color: #06b6d4;
+}
+
+.transfer-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #657487;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 1200px) {
+  .apply-main {
+    flex-direction: column;
+  }
+
+  .apply-aside {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .apply-form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .apply-field--double {
+    grid-column: span 1;
+  }
+}
+
+/* ===== 个性化布局开关组件 ===== */
+.personalization-component {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: rgba(239, 246, 255, 0.5);
+  border: 1px solid #eef2f7;
+}
+
+.personalization-component__name {
+  font-size: 14px;
+  color: #071827;
+  font-weight: 500;
+}
+
+/* 开关按钮 */
+.personalization-toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.personalization-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.personalization-toggle__slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e6e8eb;
+  border-radius: 24px;
+  transition: 0.2s;
+}
+
+.personalization-toggle__slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.personalization-toggle input:checked + .personalization-toggle__slider {
+  background-color: #2f51ff;
+}
+
+.personalization-toggle input:checked + .personalization-toggle__slider:before {
+  transform: translateX(20px);
+}
+
+.personalization-toggle input:focus + .personalization-toggle__slider {
+  box-shadow: 0 0 0 3px rgba(47, 81, 255, 0.15);
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HRMS 工作台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/figma-tokens.css" />
+    <link rel="stylesheet" href="./styles/app-shell.css" />
+    <link rel="stylesheet" href="./styles/org-pages.css" />
+    <link rel="stylesheet" href="./styles/workbench.css" />
+    <link rel="stylesheet" href="./styles/performance.css" />
+    <link rel="stylesheet" href="./styles/my-apply.css" />
+    <link rel="stylesheet" href="./styles/attendance.css" />
+    <link rel="stylesheet" href="./styles/salary.css" />
+    <link rel="stylesheet" href="./styles/training.css" />
+    <link rel="stylesheet" href="./styles/notfound.css" />
+    <link rel="stylesheet" href="./styles/settings.css" />
+    <link rel="stylesheet" href="./styles/recruit.css" />
+    <link rel="stylesheet" href="./styles/oa-approval.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div id="navRoot" class="nav-root"></div>
+
+      <div class="main">
+        <main class="content" id="content" aria-label="页面内容"></main>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div id="hrmsModalRoot" class="modal-root" aria-hidden="true">
+      <div class="modal-scrim" data-hrms-modal-close tabindex="-1"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="hrmsModalTitle">
+        <div class="modal-dialog__hd">
+          <h2 id="hrmsModalTitle" class="modal-dialog__title">详情</h2>
+          <button type="button" class="modal-dialog__close" id="hrmsModalClose" data-hrms-modal-close aria-label="关闭">
+            ×
+          </button>
+        </div>
+        <div id="hrmsModalBody" class="modal-dialog__bd"></div>
+        <div id="hrmsModalFt" class="modal-dialog__ft"></div>
+      </div>
+    </div>
+
+    <script src="./src/hrms-nav.js"></script>
+    <script src="./src/hrms-static-mock-embed.js"></script>
+    <script src="./src/hrms-page-mock-embed.js"></script>
+    <script src="./src/api-offline-mock.js"></script>
+    <script src="./src/api.js"></script>
+    <script src="./src/page-registry.js"></script>
+    <script src="./src/hrms-modal.js"></script>
+    <script src="./src/app-shell.js"></script>
+  </body>
+</html>
+

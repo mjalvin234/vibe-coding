@@ -1,0 +1,213 @@
+/**
+ * 培训管理页面样式
+ * 对应 Figma 节点 1293:7945
+ */
+
+/* 页面容器 */
+.training-page{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f0f7ff;
+}
+
+/* 标题区域 */
+.training-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+}
+
+.training-header__title{
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(7, 24, 39, 0.92);
+  margin: 0;
+}
+
+.training-header__btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  background: #2f51ff;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 统计卡片行 */
+.training-stats{
+  display: flex;
+  gap: 16px;
+}
+
+.training-stat{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  width: 274px;
+  background: #fff;
+  border: 1px solid rgba(37, 97, 153, 0.1);
+  border-radius: 12px;
+}
+
+.training-stat__label{
+  font-size: 12px;
+  color: rgba(69, 107, 163, 0.62);
+}
+
+.training-stat__value{
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.training-stat__value--gray{
+  color: #999;
+}
+
+.training-stat__value--green{
+  color: #10b9a0;
+}
+
+.training-stat__value--blue{
+  color: #2f51ff;
+}
+
+.training-stat__value--purple{
+  color: #8b5cf6;
+}
+
+/* 培训卡片行 */
+.training-cards{
+  display: flex;
+  gap: 16px;
+}
+
+.training-card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  width: 274px;
+  background: #fff;
+  border: 1px solid rgba(37, 96, 153, 0.1);
+  border-radius: 16px;
+}
+
+.training-card__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.training-card__title{
+  font-size: 14px;
+  font-weight: 500;
+  color: #31373d;
+}
+
+.training-card__status{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 11px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.training-card__status--progress{
+  background: rgba(47, 81, 255, 0.12);
+  color: #2f51ff;
+}
+
+.training-card__status--pending{
+  background: rgba(139, 92, 246, 0.12);
+  color: #8b5cf6;
+}
+
+.training-card__status--done{
+  background: rgba(16, 185, 160, 0.12);
+  color: #10b9a0;
+}
+
+.training-card__date{
+  font-size: 12px;
+  color: rgba(69, 107, 163, 0.62);
+}
+
+.training-card__meta{
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #808080;
+}
+
+.training-card__count{
+  font-size: 12px;
+  color: #666;
+}
+
+.training-card__progress{
+  height: 6px;
+  background: #e5e8eb;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.training-card__progress-bar{
+  height: 100%;
+  border-radius: 3px;
+}
+
+.training-card__progress-bar--blue{
+  background: #2f51ff;
+}
+
+.training-card__progress-bar--green{
+  background: #10b9a0;
+}
+
+.training-card__progress-text{
+  font-size: 11px;
+  color: #808080;
+}
+
+.training-card__actions{
+  display: flex;
+  gap: 8px;
+  height: 26px;
+}
+
+.training-card__btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  width: 120px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.training-card__btn--primary{
+  background: rgba(47, 81, 255, 0.1);
+  color: #2f51ff;
+}
+
+.training-card__btn--default{
+  background: #f5f5fa;
+  border: 1px solid #e0e3e5;
+  color: #31373d;
+}

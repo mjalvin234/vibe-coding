@@ -1,0 +1,344 @@
+/**
+ * 考勤管理页面样式
+ * 对应 Figma 节点 1293:7493
+ */
+
+/* 页面容器 */
+.attendance-page{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f0f7ff;
+}
+
+/* 标题区域 */
+.attendance-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.attendance-header__title{
+  font-size: 22px;
+  font-weight: 700;
+  color: #31373d;
+  margin: 0;
+}
+
+.attendance-header__date{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.attendance-header__date-text{
+  font-size: 16px;
+  font-weight: 700;
+  color: #31373d;
+}
+
+.attendance-header__date-divider{
+  width: 4px;
+  height: 32px;
+  background: linear-gradient(180deg, #2f51ff 0%, #8b5cf6 100%);
+  border-radius: 2px;
+}
+
+/* KPI 卡片行 */
+.attendance-kpis{
+  display: flex;
+  gap: 16px;
+  height: 130px;
+}
+
+.attendance-kpi{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  width: 220px;
+  border-radius: 16px;
+}
+
+.attendance-kpi--green{
+  background: #eaf9f4;
+}
+
+.attendance-kpi--orange{
+  background: #fff2e6;
+}
+
+.attendance-kpi--red{
+  background: #ffedee;
+}
+
+.attendance-kpi--purple{
+  background: #f5eeff;
+}
+
+.attendance-kpi--blue{
+  background: #efffed;
+}
+
+.attendance-kpi__header{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.attendance-kpi__icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.attendance-kpi__icon--green{
+  background: rgba(16, 185, 160, 0.2);
+}
+
+.attendance-kpi__icon--orange{
+  background: rgba(245, 158, 11, 0.2);
+}
+
+.attendance-kpi__icon--red{
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.attendance-kpi__icon--purple{
+  background: rgba(139, 92, 246, 0.2);
+}
+
+.attendance-kpi__icon--blue{
+  background: rgba(14, 165, 233, 0.2);
+}
+
+.attendance-kpi__label{
+  font-size: 13px;
+  color: #666;
+}
+
+.attendance-kpi__value{
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.attendance-kpi__value--green{
+  color: #10b9a0;
+}
+
+.attendance-kpi__value--orange{
+  color: #f59e0b;
+}
+
+.attendance-kpi__value--red{
+  color: #ef4444;
+}
+
+.attendance-kpi__value--purple{
+  color: #8b5cf6;
+}
+
+.attendance-kpi__value--blue{
+  color: #0ea5e9;
+}
+
+.attendance-kpi__note{
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.attendance-kpi__note--green{
+  color: #10b9a0;
+}
+
+/* 标签栏 */
+.attendance-tabs{
+  display: flex;
+  gap: 12px;
+  height: 48px;
+}
+
+.attendance-tab{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.attendance-tab--active{
+  background: rgba(47, 81, 255, 0.1);
+  color: #2f51ff;
+}
+
+.attendance-tab--warning{
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.attendance-tab--purple{
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+}
+
+.attendance-tab--green{
+  background: rgba(16, 185, 160, 0.1);
+  color: #10b9a0;
+}
+
+/* 筛选栏 */
+.attendance-filter{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 12px;
+}
+
+.attendance-filter__item{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  background: #f7f7fa;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #31373d;
+  cursor: pointer;
+}
+
+.attendance-filter__search{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  background: #f7f7fa;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.attendance-filter__search-input{
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: #999;
+  outline: none;
+  width: 100%;
+}
+
+/* 表格 */
+.attendance-table{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.attendance-table__header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  padding: 0 20px;
+  background: #fafaff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.attendance-table__row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  padding: 0 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.attendance-table__row:last-child{
+  border-bottom: none;
+}
+
+.attendance-table__cell{
+  display: flex;
+  align-items: center;
+}
+
+.attendance-table__cell--name{
+  font-size: 14px;
+  font-weight: 500;
+  color: #31373d;
+  min-width: 80px;
+}
+
+.attendance-table__cell--dept{
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.attendance-table__cell--dept-blue{
+  background: #eaedff;
+}
+
+.attendance-table__cell--dept-green{
+  background: #e7f7f5;
+}
+
+.attendance-table__cell--dept-orange{
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.attendance-table__cell--dept-purple{
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.attendance-table__cell--time{
+  font-size: 14px;
+  font-weight: 500;
+  color: #080808;
+}
+
+.attendance-table__cell--status{
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.attendance-table__cell--status-normal{
+  background: rgba(0, 0, 0, 0.12);
+  color: #080808;
+}
+
+.attendance-table__cell--status-late{
+  background: rgba(245, 158, 11, 0.12);
+  color: #080808;
+}
+
+.attendance-table__cell--status-early{
+  background: rgba(239, 68, 68, 0.12);
+  color: #080808;
+}
+
+.attendance-table__cell--hours{
+  font-size: 15px;
+  font-weight: 700;
+  color: #000;
+}

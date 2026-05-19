@@ -1,0 +1,298 @@
+/**
+ * 薪酬管理页面样式
+ * 对应 Figma 节点 1293:7766
+ */
+
+/* 页面容器 */
+.salary-page{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 28px 24px;
+  min-height: 100%;
+  background: #f4f8fe;
+}
+
+/* 标题区域 */
+.salary-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.salary-header__title{
+  font-size: 22px;
+  font-weight: 700;
+  color: #31373d;
+  margin: 0;
+}
+
+.salary-header__month{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.salary-header__month-text{
+  font-size: 15px;
+  font-weight: 500;
+  color: #2f51ff;
+}
+
+/* KPI 卡片行 */
+.salary-kpis{
+  display: flex;
+  gap: 16px;
+  height: 140px;
+}
+
+.salary-kpi{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  width: 274px;
+  border-radius: 16px;
+}
+
+.salary-kpi--blue{
+  background: #edf2ff;
+}
+
+.salary-kpi--green{
+  background: #eaf9f4;
+}
+
+.salary-kpi--purple{
+  background: #f5eeff;
+}
+
+.salary-kpi--orange{
+  background: #fff2e6;
+}
+
+.salary-kpi__label{
+  font-size: 13px;
+  color: #666;
+}
+
+.salary-kpi__value{
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.salary-kpi__value--blue{
+  color: #2f51ff;
+}
+
+.salary-kpi__value--green{
+  color: #10b9a0;
+}
+
+.salary-kpi__value--purple{
+  color: #8b5cf6;
+}
+
+.salary-kpi__value--orange{
+  color: #f59e0b;
+}
+
+.salary-kpi__note{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.salary-kpi__note--green{
+  background: rgba(16, 185, 160, 0.1);
+  color: #10b9a0;
+}
+
+.salary-kpi__note--blue{
+  background: rgba(14, 165, 233, 0.1);
+  color: #0ea5e9;
+}
+
+/* 标签栏 */
+.salary-tabs{
+  display: flex;
+  gap: 24px;
+  height: 40px;
+}
+
+.salary-tab{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.salary-tab__text{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.salary-tab__text--active{
+  color: #2f51ff;
+}
+
+.salary-tab__text--default{
+  color: #666;
+}
+
+.salary-tab__underline{
+  height: 3px;
+  width: 70px;
+  background: #2f51ff;
+  border-radius: 2px;
+}
+
+/* 工具栏 */
+.salary-toolbar{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 12px;
+}
+
+.salary-toolbar__filter{
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  background: #f7f7fa;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #31373d;
+  cursor: pointer;
+}
+
+.salary-toolbar__btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.salary-toolbar__btn--outline{
+  background: #fff;
+  border: 1px solid #2f51ff;
+  color: #2f51ff;
+}
+
+.salary-toolbar__btn--green{
+  background: #10b9a0;
+  color: #fff;
+}
+
+.salary-toolbar__btn--primary{
+  background: #2f51ff;
+  color: #fff;
+}
+
+/* 表格 */
+.salary-table{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e5e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.salary-table__header{
+  display: flex;
+  align-items: center;
+  gap: 105px;
+  height: 50px;
+  padding: 0 16px;
+  background: #fafaff;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.salary-table__row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.salary-table__row:last-child{
+  border-bottom: none;
+}
+
+.salary-table__cell{
+  font-size: 12px;
+  color: #000;
+}
+
+.salary-table__cell--name{
+  font-size: 13px;
+  font-weight: 500;
+  color: #31373d;
+}
+
+.salary-table__cell--dept{
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.salary-table__cell--dept-green{
+  background: rgba(16, 185, 160, 0.1);
+}
+
+.salary-table__cell--dept-blue{
+  background: rgba(47, 81, 255, 0.1);
+}
+
+.salary-table__cell--dept-purple{
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+}
+
+.salary-table__cell--dept-blue-light{
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.salary-table__cell--amount{
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+.salary-table__cell--status{
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.salary-table__cell--status-confirmed{
+  background: rgba(0, 0, 0, 0.12);
+  color: #000;
+}
+
+.salary-table__cell--status-pending{
+  background: rgba(245, 158, 11, 0.12);
+  color: #000;
+}
