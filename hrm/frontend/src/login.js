@@ -1,10 +1,10 @@
-/** 开发跳过登录：打开 login.html?skip=1 将写入占位 token 并进入工作台（当前壳未做强制鉴权）。 */
+/** 开发跳过登录：打开 index.html?skip=1 将写入占位 token 并进入工作台（当前壳未做强制鉴权）。 */
 (function skipLoginIfRequested() {
   try {
     const sp = new URLSearchParams(window.location.search || "");
     if (sp.get("skip") !== "1") return;
     sessionStorage.setItem("hrms:token", "dev-bypass");
-    window.location.replace("./index.html#/workbench");
+    window.location.replace("./hrm/home.html#/workbench");
   } catch (_) {}
 })();
 
@@ -147,7 +147,7 @@ function persistToken(token, remember) {
 }
 
 function goWorkbench() {
-  window.location.replace("./index.html#/workbench");
+  window.location.replace("./hrm/home.html#/workbench");
 }
 
 function initLoginPage() {
